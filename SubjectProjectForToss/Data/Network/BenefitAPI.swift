@@ -23,7 +23,7 @@ enum NetworkingError: Error {
 }
 
 enum BenefitAPI {
-    case getBeerList(page: Int)
+    case getBenefitList(page: Int)
     case random
 }
 
@@ -47,7 +47,7 @@ extension BenefitAPI: TargetType {
 
     var task: Task {
         switch self {
-        case let .getBeerList(page):
+        case let .getBenefitList(page):
             return .requestParameters(parameters: ["page": page], encoding: URLEncoding.queryString)
         default:
             return .requestPlain
@@ -56,7 +56,7 @@ extension BenefitAPI: TargetType {
 
     var sampleData: Data {
         switch self {
-        case .getBeerList:
+        case .getBenefitList:
             return stubbedResponse("BeerList")
         case .random:
             return stubbedResponse("RandomBeer")

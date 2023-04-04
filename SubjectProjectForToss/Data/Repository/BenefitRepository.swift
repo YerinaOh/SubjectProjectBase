@@ -19,7 +19,7 @@ final class BenefitRepository: BenefitRepos {
     }
     
     func getBeerList(page: Int) -> AnyPublisher<[Benefit], NetworkingError> {
-        self.provider.requestPublisher(.getBeerList(page: page))
+        self.provider.requestPublisher(.getBenefitList(page: page))
             .filterSuccessfulStatusCodes()
             .map([Benefit].self)
             .removeDuplicates()
